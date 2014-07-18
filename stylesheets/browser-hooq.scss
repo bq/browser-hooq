@@ -1,0 +1,129 @@
+/**
+ * Modal component
+ */
+
+@import "config";
+@import "mixins";
+
+.ie7 .browserhooq.modal .modal__dialog,
+.ie8 .browserhooq.modal .modal__dialog,
+.ie9 .browserhooq.modal .modal__dialog {
+    position    : absolute;
+    top         : 0;
+    width       : $browserhooq-modal-base-ie-width;
+    margin-left : ( $browserhooq-modal-base-ie-width / 2 ) * -1;
+}
+
+.browserhooq.modal {
+    -webkit-overflow-scrolling : touch;
+    outline                    : none;
+    position                   : absolute;
+    top                        : 0;
+    right                      : 0;
+    bottom                     : 0;
+    left                       : 0;
+    z-index                    : $browserhooq-modal-base-zindex;
+    margin                     : auto;
+    font-family                : $browserhooq-modal-base-fontfamily;
+    color                      : $browserhooq-modal-base-color;
+
+    .modal__dialog {
+        @include translate(-50%, -50%);
+        position              : absolute;
+        top                   : 50%;
+        left                  : 50%;
+        width                 : 80%;
+        max-width             : $browserhooq-modal-base-maxwidth;
+        z-index               : $browserhooq-modal-base-zindex + 1;
+        background-color      : $browserhooq-modal-base-backgroundcolor;
+        overflow              : hidden;
+        border                : $browserhooq-modal-base-border;
+
+        @include border-shadow( $browserhooq-modal-base-bordershadow );
+        @include border-radius( $browserhooq-modal-base-borderradius );
+
+        .modal__dialog__content {
+            cursor          : default;
+            max-height      : 100%;
+            margin          : $browserhooq-modal-content-margin;
+            position        : relative;
+            background-clip : padding-box;
+            outline         : none;
+        }
+    }
+
+    .modal__header,
+    .modal__footer {
+      position  : relative;
+      font-size : $browserhooq-modal-footer-fontsize;
+    }
+
+    .modal__header {
+        h1 {
+            font-size : $browserhooq-modal-header-fontsize;
+            color     : #000000;
+            margin    : $browserhooq-modal-header-margin;
+        }
+        .icon {
+            position: absolute;
+        }
+    }
+
+    .modal__body {
+        position  : relative;
+        font-size : $browserhooq-modal-body-fontsize;
+    }
+
+    .modal__footer {
+        margin: $browserhooq-modal-footer-margin;
+    }
+
+    .modal__header,
+    .modal__footer,
+    .modal__body {
+        text-align: center;
+    }
+
+    /* Custom */
+    img,
+    .current a,
+    .options a {
+        border          : none;
+        outline         : none;
+        text-decoration : none;
+        width           : 58px;
+        height          : 58px;
+        display         :inline-block;
+    }
+    .options {
+        margin-left: -15px;
+
+        a {
+            margin-left: 15px;
+        }
+    }
+
+    .btn {
+        position              : relative;
+        display               : inline-block;
+        padding               : $browserhooq-modal-padding;
+        width                 : $browserhooq-modal-width;
+        margin-left           : $browserhooq-modal-marginleft;
+        font-size             : $browserhooq-modal-fontsize;
+        font-weight           : 700;
+        line-height           : $browserhooq-modal-lineheight;
+        color                 : $browserhooq-modal-color;
+        white-space           : nowrap;
+        text-decoration       : none;
+        opacity               : 1;
+
+        @include border-radius( $browserhooq-modal-borderradius );
+
+        @include transition( $browserhooq-modal-transition );
+    }
+
+    .hidden {
+        display: none !important;
+        visibility: hidden;
+    }
+}

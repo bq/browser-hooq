@@ -1,0 +1,17 @@
+/** Modal component */
+.ie7 .browserhooq.modal .modal__dialog, .ie8 .browserhooq.modal .modal__dialog, .ie9 .browserhooq.modal .modal__dialog { position: absolute; top: 0; width: 500px; margin-left: -250px; }
+
+.browserhooq.modal { -webkit-overflow-scrolling: touch; outline: none; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 1050; margin: auto; font-family: Arial, Helvetica, sans-serif; color: #666666; /* Custom */ }
+.browserhooq.modal .modal__dialog { -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); transform: translate(-50%, -50%); position: absolute; top: 50%; left: 50%; width: 80%; max-width: 725px; z-index: 1051; background-color: white; overflow: hidden; border: 1px solid #cccccc; -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); -ms-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; }
+.browserhooq.modal .modal__dialog .modal__dialog__content { cursor: default; max-height: 100%; margin: 25px 37px; position: relative; background-clip: padding-box; outline: none; }
+.browserhooq.modal .modal__header, .browserhooq.modal .modal__footer { position: relative; font-size: 14px; }
+.browserhooq.modal .modal__header h1 { font-size: 16px; color: #000000; margin: 0 0 27px 0; }
+.browserhooq.modal .modal__header .icon { position: absolute; }
+.browserhooq.modal .modal__body { position: relative; font-size: 12px; }
+.browserhooq.modal .modal__footer { margin: 27px 0; }
+.browserhooq.modal .modal__header, .browserhooq.modal .modal__footer, .browserhooq.modal .modal__body { text-align: center; }
+.browserhooq.modal img, .browserhooq.modal .current a, .browserhooq.modal .options a { border: none; outline: none; text-decoration: none; width: 58px; height: 58px; display: inline-block; }
+.browserhooq.modal .options { margin-left: -15px; }
+.browserhooq.modal .options a { margin-left: 15px; }
+.browserhooq.modal .btn { position: relative; display: inline-block; padding: 11px 0; width: 165px; margin-left: 8px; font-size: 10px; font-weight: 700; line-height: 12px; color: white; white-space: nowrap; text-decoration: none; opacity: 1; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out; -ms-transition: all 0.5s ease-out; -o-transition: all 0.5s ease-out; transition: all 0.5s ease-out; }
+.browserhooq.modal .hidden { display: none !important; visibility: hidden; }
