@@ -1,0 +1,35 @@
+{
+  "name": "browser-hooq",
+  "version": "0.1.0",
+  "description": "Browser-hooqs Component by BQ",
+  "main": "Gruntfile.js",
+  "keywords": "browserhooq",
+  "private": true,
+  "contributors": [
+    {
+      "name": "José Manuel Rosa Moncayo",
+      "email": "josemanuel.rosa@bq.com"
+    }
+  ],
+  "keywords": [
+    "browser",
+    "user-agent"
+  ],
+  "engines": {
+    "node": ">=0.10.26"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-compass": "^0.9.0",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-imagemin": "^0.7.1",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "jshint-stylish": "^0.4.0",
+    "time-grunt": "^0.4.0"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "browser-hooq",
+  "description": "Browser-hooq Component. Check browsers for your webapp",
+  "version": "0.1.0",
+  "authors": [
+    "Jose Manuel Rosa <josemanuel.rosamoncayo@gmail.com>"
+  ],
+  "keywords": [
+    "browser",
+    "user-agent"
+  ],
+  "license": "GNU",
+  "ignore": [
+    "bower_components",
+    "node_modules",
+    "sass_cache",
+    "**/.*",
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bq/browser-hooq.git"
+  },
+  "main": "scripts/browser-hooq.js"
+}
