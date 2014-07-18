@@ -1,0 +1,24 @@
+{
+  "name": "browser-hooq",
+  "description": "Browser-hooqs Component by BQ",
+  "version": "0.1",
+  "private": false,
+  "authors": [
+    "Jose Manuel Rosa <josemanuel.rosamoncayo@gmail.com>"
+  ],
+  "moduleType": [
+    "Grunt",
+    "Components",
+    "JavaScript",
+  ],
+  "keywords": [
+    "browser",
+    "user-agent"
+  ],
+  "license": "GNU",
+  "ignore": [
+    "node_modules",
+    "sass_cache"
+  ],
+  "dependencies": {}
+}

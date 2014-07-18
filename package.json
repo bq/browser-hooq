@@ -1,6 +1,6 @@
 {
   "name": "browser-hooq",
-  "version": "0.0.1",
+  "version": "0.1",
   "description": "Browser-hooqs Component by BQ",
   "main": "Gruntfile.js",
   "keywords": "browserhooq",
@@ -9,11 +9,11 @@
     {
       "name": "José Manuel Rosa Moncayo",
       "email": "josemanuel.rosa@bq.com"
-    },
-    {
-      "name": "Sergio Morcuende",
-      "email": "sergio.morcuende@bq.com"
     }
+  ],
+  "keywords": [
+    "browser",
+    "user-agent"
   ],
   "engines": {
     "node": ">=0.10.26"
