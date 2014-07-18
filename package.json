@@ -1,6 +1,6 @@
 {
   "name": "browser-hooq",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "Browser-hooqs Component by BQ",
   "main": "Gruntfile.js",
   "keywords": "browserhooq",
