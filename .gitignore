@@ -1,2 +1,4 @@
 node_modules/
 sass_cache/
+*.sublime-project
+*.sublime-workspace
