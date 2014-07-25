@@ -5,16 +5,16 @@
 @import "config";
 @import "mixins";
 
-.ie7 .browserhooq.modal .modal__dialog,
-.ie8 .browserhooq.modal .modal__dialog,
-.ie9 .browserhooq.modal .modal__dialog {
+.ie7 #browserhooq.modal .modal__dialog,
+.ie8 #browserhooq.modal .modal__dialog,
+.ie9 #browserhooq.modal .modal__dialog {
     position    : absolute;
     top         : 0;
     width       : $browserhooq-modal-base-ie-width;
     margin-left : ( $browserhooq-modal-base-ie-width / 2 ) * -1;
 }
 
-.browserhooq.modal {
+#browserhooq.modal {
     -webkit-overflow-scrolling : touch;
     outline                    : none;
     position                   : absolute;
