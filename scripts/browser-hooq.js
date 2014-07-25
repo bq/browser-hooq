@@ -6,16 +6,21 @@
 var browserHooq;
 
 browserHooq = (function() {
-    var _ua, _appversion;
-        _ua         = navigator.userAgent || window.navigator.userAgent,
-        _appversion = navigator.appVersion || window.navigator.appVersion;
+    var _ua, _appversion, _emptyObject;
+    _ua         = navigator.userAgent || window.navigator.userAgent,
+    _appversion = navigator.appVersion || window.navigator.appVersion;
+    _emptyObject = {
+        browser: false,
+        version: false,
+        os : false
+    };
 
     function browserHooq(condition) {
-        this.ie      = condition.ie     !== null ? condition.ie : false;
-        this.chrome  = condition.chrome !== null ? condition.chrome : false;
-        this.firefox = condition.chrome !== null ? condition.firefox : false;
-        this.safari  = condition.safari !== null ? condition.safari : false;
-        this.opera   = condition.opera  !== null ? condition.opera : false;
+        this.ie      = condition.ie      !== null ? condition.ie : false;
+        this.chrome  = condition.chrome  !== null ? condition.chrome : false;
+        this.firefox = condition.firefox !== null ? condition.firefox : false;
+        this.safari  = condition.safari  !== null ? condition.safari : false;
+        this.opera   = condition.opera   !== null ? condition.opera : false;
     }
 
     browserHooq.prototype.render = function(tagId, callback) {
@@ -110,111 +115,153 @@ browserHooq = (function() {
         return new RegExp('Mac OS', 'i').test( _ua );
     };
 
+    browserHooq.prototype.isAndroid = function() {
+        return new RegExp('android', 'i').test( _ua );
+    };
+
+    browserHooq.prototype.isiOS = function() {
+        var iPhone = new RegExp('iphone', 'i').test( _ua );
+        var iPad   = new RegExp('ipad', 'i').test( _ua );
+        return ( iPhone || iPad );
+    };
+
+    browserHooq.prototype.isWPhone = function() {
+        var windowsPhone = new RegExp('windows phone', 'i').test( _ua );
+        var windowsTouch = new RegExp('msie.*touch', 'i').test( _ua );
+        return ( windowsPhone || windowsTouch );
+    };
+
     browserHooq.prototype.getOS = function() {
-        return this.isWindows() ? 'windows' : this.isLinux() ? 'linux' : this.isMac() ? 'mac' : false;
+        if( this.isWindows() ) {
+            return 'windows';
+        }
+
+        if( this.isLinux() ) {
+            return 'linux';
+        }
+
+        if( this.isMac() ) {
+            return 'mac';
+        }
+
+        if( this.isAndroid() ) {
+            return 'android';
+        }
+
+        if( this.isiOS() ) {
+            return 'ios';
+        }
+
+        if( this.isWPhone() ) {
+            return 'wphone';
+        }
+
+        return false;
     };
 
     browserHooq.prototype.isIE = function() {
-        var version = false,
-            browser = false,
-            os = this.getOS();
+        var version = void 0,
+            browser;
 
         // Comprobamos si el navegador es Internet Explorer
         browser = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
         browser = !browser && /*@cc_on!@*/false ? true : browser;
 
-        if(!browser) {
-            return {
-                browser: false,
-                version: false,
-                os : os
-            };
+        if( !browser ) {
+            return _emptyObject;
         }
 
         // En caso de ser Internet Explorer, obtenemos su versión
         version = new RegExp('MSIE ([0-9]{1,}[\.0-9]{0,})').exec( _ua );
         version = !version ? new RegExp('Trident/.*rv:([0-9]{1,}[\.0-9]{0,})').exec( _ua ) : version;
-        if ( version !== null ) {
-            browser = 'ie';
-            version = parseFloat( RegExp.$1 );
+        if ( !version ) {
+            return _emptyObject;
         }
 
         return {
-            browser: browser,
-            version: version,
-            os : os
+            browser : 'ie',
+            version : parseFloat( RegExp.$1 ),
+            os      : this.getOS()
         };
     };
 
     browserHooq.prototype.isChrome = function() {
-        var os = this.getOS();
+        var version = void 0;
 
         if( !( !! window.chrome && !! window.chrome.webstore ) ) {
-            return {
-                browser: false,
-                version: false,
-                os : os
-            };
+            return _emptyObject;
+        }
+
+        version = _appversion.match(/chrome\/(\d+)\./i);
+
+        if( !version ) {
+            return _emptyObject;
         }
 
         return {
-            browser: 'chrome',
-            version: parseInt(_appversion.match(/chrome\/(\d+)\./i)[1], 10),
-            os : os
+            browser : 'chrome',
+            version : parseInt( version[1], 10 ),
+            os      : this.getOS()
         };
     };
 
     browserHooq.prototype.isFF = function() {
-        var os = this.getOS();
+        var version = void 0;
 
         if( !( 'MozAppearance' in document.documentElement.style ) ) {
-            return {
-                browser: false,
-                version: false,
-                os : os
-            };
+            return _emptyObject;
+        }
+
+        version = _ua.match(/firefox\/(\d+(\.\d+)?)/i);
+
+        if( !version ) {
+            return _emptyObject;
         }
 
         return {
-            browser: 'firefox',
-            version: parseInt(_ua.match(/firefox\/(\d+(\.\d+)?)/i)[1], 10),
-            os : os
+            browser : 'firefox',
+            version : parseInt( version[1], 10 ),
+            os      : this.getOS()
         };
     };
 
     browserHooq.prototype.isOpera = function() {
-        var os = this.getOS();
+        var version = void 0;
 
         if( !( !!window.opera || /opera|opr/i.test(navigator.userAgent) ) ) {
-            return {
-                browser: false,
-                version: false,
-                os : os
-            };
+            return _emptyObject;
+        }
+
+        version = _ua.match(/opera\/(\d+(\.\d+)?)/i);
+
+        if( !version ) {
+            return _emptyObject;
         }
 
         return {
-            browser: 'opera',
-            version: parseInt(_ua.match(/opera\/(\d+(\.\d+)?)/i)[1], 10),
-            os : os
+            browser : 'opera',
+            version : parseInt( version[1], 10 ),
+            os      : this.getOS()
         };
     };
 
     browserHooq.prototype.isSafari = function() {
-        var os = this.getOS();
+        var version = void 0;
 
         if( !( /constructor/i.test(window.HTMLElement) ) ) {
-            return {
-                browser: false,
-                version: false,
-                os : os
-            };
+            return _emptyObject;
+        }
+
+        version = _ua.match(/version\/(\d+(\.\d+)?)/i);
+
+        if( !version ) {
+            return _emptyObject;
         }
 
         return {
-            browser: 'safari',
-            version: parseInt(_ua.match(/version\/(\d+(\.\d+)?)/i)[1], 10),
-            os : os
+            browser : 'safari',
+            version : parseInt( version[1], 10 ),
+            os      : this.getOS()
         };
     };
 
