@@ -4,7 +4,7 @@ var browserHooqTmpl = "<div class=\"modal__dialog\">\
                     <h1 class=\"modal__header__title\">Mensaje de Soporte</h1>\
                 </div>\
                 <div class=\"modal__body\">\
-                    <p>¡Vaya! La versión de tu navegador es muy antigua. Actualizado clicando en el icono para poder disfrutar de todas las funciones de nuestro lector web.</p>\
+                    <p>¡Vaya! La versión de tu navegador es muy antigua. Actualizado clicando en el icono para poder disfrutar de todas las funciones de nuestra web.</p>\
                     <div id=\"browsercurrent\" class=\"current\">\
                         <a id=\"currentchrome\" href=\"https://www.google.com/chrome/browser/\" title=\"Chrome\" target=\"_blank\" class=\"hidden\">\
                             <img src=\"img/chrome.gif\" alt=\"Chrome\">\
@@ -36,7 +36,7 @@ var browserHooqTmpl = "<div class=\"modal__dialog\">\
                     </div>\
                 </div>\
                 <div class=\"modal__footer\">\
-                    <a class=\"btn btn--primary\" title=\"Volver a biblioteca\">Volver a biblioteca</a>\
+                    <a class=\"btn btn--primary\" title=\"Volver\">Volver</a>\
                 </div>\
             </div>\
         </div>";
