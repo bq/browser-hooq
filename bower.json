@@ -1,7 +1,7 @@
 {
   "name": "browser-hooq",
   "description": "Browser-hooq Component. Check browsers for your webapp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "authors": [
     "Jose Manuel Rosa <josemanuel.rosamoncayo@gmail.com>"
   ],
