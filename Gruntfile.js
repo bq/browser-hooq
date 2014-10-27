@@ -20,7 +20,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         meta: {
             file     : '<%= pkg.name %>',
-            endpoint : 'public/'
+            endpoint : 'dist/'
         },
         source: {
             style     : 'stylesheets/',
@@ -117,7 +117,7 @@ module.exports = function(grunt) {
             },
             images: {
                 files: [
-                    'public/{,**/}*.{png,jpg,jpeg,gif}'
+                    'dist/{,**/}*.{png,jpg,jpeg,gif}'
                 ],
                 tasks: ['imagemin:images']
             },
@@ -140,7 +140,7 @@ module.exports = function(grunt) {
     // Servidor mockup para imitar vertx e integración
     grunt.registerTask(
         '__dist',
-        'Task for generate public dir',
+        'Task for generate dist dir',
         ['clean', 'uglify:scripts', 'uglify:templates', 'uglify:dist', 'compass:dev', 'copy:images', 'imagemin:images']
     );
 

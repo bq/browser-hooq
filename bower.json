@@ -20,5 +20,5 @@
     "type": "git",
     "url": "git://github.com/bq/browser-hooq.git"
   },
-  "main": "scripts/browser-hooq.js"
+  "main": "dist/scripts/browser-hooq.min.js"
 }

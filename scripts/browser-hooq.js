@@ -3,9 +3,9 @@
  */
 'use strict';
 
-var browserHooq;
+var BrowserHooq;
 
-browserHooq = (function() {
+BrowserHooq = (function() {
     var _ua, _appversion, _emptyObject;
     _ua         = navigator.userAgent || window.navigator.userAgent,
     _appversion = navigator.appVersion || window.navigator.appVersion;
@@ -15,7 +15,7 @@ browserHooq = (function() {
         os : false
     };
 
-    function browserHooq(condition) {
+    function BrowserHooq(condition) {
         this.ie      = condition.ie      !== null ? condition.ie : false;
         this.chrome  = condition.chrome  !== null ? condition.chrome : false;
         this.firefox = condition.firefox !== null ? condition.firefox : false;
@@ -23,7 +23,7 @@ browserHooq = (function() {
         this.opera   = condition.opera   !== null ? condition.opera : false;
     }
 
-    browserHooq.prototype.render = function(tagId, callback) {
+    BrowserHooq.prototype.render = function(tagId, callback) {
         var wrapper = void 0;
         if( wrapper = document.getElementById(tagId) ) {
             wrapper.style.display = 'block';
@@ -42,7 +42,7 @@ browserHooq = (function() {
         return true;
     };
 
-    browserHooq.prototype.supported = function() {
+    BrowserHooq.prototype.supported = function() {
         var ie      = this.isIE();
         var safari  = this.isSafari();
         var firefox = this.isFF();
@@ -75,7 +75,7 @@ browserHooq = (function() {
         return false;
     };
 
-    browserHooq.prototype.current = function() {
+    BrowserHooq.prototype.current = function() {
         var ie      = this.isIE();
         var safari  = this.isSafari();
         var firefox = this.isFF();
@@ -103,35 +103,35 @@ browserHooq = (function() {
         }
     };
 
-    browserHooq.prototype.isWindows = function() {
+    BrowserHooq.prototype.isWindows = function() {
         return new RegExp('Win', 'i').test( _ua );
     };
 
-    browserHooq.prototype.isLinux = function() {
+    BrowserHooq.prototype.isLinux = function() {
         return new RegExp('Linux', 'i').test( _ua );
     };
 
-    browserHooq.prototype.isMac = function() {
+    BrowserHooq.prototype.isMac = function() {
         return new RegExp('Mac OS', 'i').test( _ua );
     };
 
-    browserHooq.prototype.isAndroid = function() {
+    BrowserHooq.prototype.isAndroid = function() {
         return new RegExp('android', 'i').test( _ua );
     };
 
-    browserHooq.prototype.isiOS = function() {
+    BrowserHooq.prototype.isiOS = function() {
         var iPhone = new RegExp('iphone', 'i').test( _ua );
         var iPad   = new RegExp('ipad', 'i').test( _ua );
         return ( iPhone || iPad );
     };
 
-    browserHooq.prototype.isWPhone = function() {
+    BrowserHooq.prototype.isWPhone = function() {
         var windowsPhone = new RegExp('windows phone', 'i').test( _ua );
         var windowsTouch = new RegExp('msie.*touch', 'i').test( _ua );
         return ( windowsPhone || windowsTouch );
     };
 
-    browserHooq.prototype.getOS = function() {
+    BrowserHooq.prototype.getOS = function() {
         if( this.isWindows() ) {
             return 'windows';
         }
@@ -159,7 +159,7 @@ browserHooq = (function() {
         return false;
     };
 
-    browserHooq.prototype.isIE = function() {
+    BrowserHooq.prototype.isIE = function() {
         var version = void 0,
             browser;
 
@@ -185,7 +185,7 @@ browserHooq = (function() {
         };
     };
 
-    browserHooq.prototype.isChrome = function() {
+    BrowserHooq.prototype.isChrome = function() {
         var version = void 0;
 
         if( !( !! window.chrome && !! window.chrome.webstore ) ) {
@@ -205,7 +205,7 @@ browserHooq = (function() {
         };
     };
 
-    browserHooq.prototype.isFF = function() {
+    BrowserHooq.prototype.isFF = function() {
         var version = void 0;
 
         if( !( 'MozAppearance' in document.documentElement.style ) ) {
@@ -225,7 +225,7 @@ browserHooq = (function() {
         };
     };
 
-    browserHooq.prototype.isOpera = function() {
+    BrowserHooq.prototype.isOpera = function() {
         var version = void 0;
 
         if( !( !!window.opera || /opera|opr/i.test(navigator.userAgent) ) ) {
@@ -245,7 +245,7 @@ browserHooq = (function() {
         };
     };
 
-    browserHooq.prototype.isSafari = function() {
+    BrowserHooq.prototype.isSafari = function() {
         var version = void 0;
 
         if( !( /constructor/i.test(window.HTMLElement) ) ) {
@@ -265,5 +265,5 @@ browserHooq = (function() {
         };
     };
 
-    return browserHooq;
+    return BrowserHooq;
 })();
